@@ -10,7 +10,7 @@ export default function Card({
     return (
         <div
             id="card"
-            className="tw-relative tw-pb-8 tw-overflow-hidden tw-bg-gray-900 tw-bg-opacity-95 tw-flex tw-flex-col  tw-rounded-lg tw-shadow-xl"
+            className="tw-relative tw-pb-8 tw-overflow-hidden tw-bg-gray-900  tw-flex tw-flex-col  tw-rounded-lg tw-shadow-xl"
         >
             {/* <div className="project-image tw-h-40 tw-flex tw-items-center tw-bg-gradient-to-tl tw-from-gray-900 tw-to-yellow-900" /> */}
 

@@ -58,7 +58,7 @@ text-xs {
         @apply tw-absolute tw-invisible tw-hidden;
         @apply tw-opacity-0 tw-transition-opacity;
         @apply tw-bg-gray-600 tw-text-gray-300 tw-rounded-sm tw-shadow-lg tw-font-bold;
-        @apply tw-px-2 tw-py-2;
+        @apply tw-px-2 tw-py-2 tw-text-center;
         @apply tw-z-50;
     }
 }
@@ -73,7 +73,7 @@ text-xs {
 }
 .tooltip.tooltip-left {
     top: 50%;
-    right: 128%;
+    right: calc(128% + 3px);
     /* margin-left: 5em; */
 
     transform: translate(0%, -50%);
@@ -141,4 +141,25 @@ main * {
 #card:hover {
     /* @apply tw-transition-transform; */
     transform: scale(1.02);
+}
+
+.hero .streamline {
+    height: calc(100% - 5.8em - 3rem - 2rem);
+    width: calc(35% - 3.5rem);
+}
+.hero .streamline::after {
+    content: "";
+    width: 1em;
+    height: 1em;
+
+    @apply tw-border-yellow-500 tw-border-2 tw-shadow-lg;
+    @apply tw-bg-gray-800;
+
+
+    position: absolute;
+    bottom: -.5em;
+    right: -.5em;
+}
+.anchors {
+    margin-right: 35%;
 }
