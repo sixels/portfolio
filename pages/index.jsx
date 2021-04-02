@@ -113,7 +113,7 @@ export default function Home() {
                             Hey, I'm{" "}
                             <a className=" tw-text-yellow-400">Protoshark</a>
                         </h1>
-                        <p className="tw-max-w-sm md:tw-max-w-xl tw-font-medium tw-text-lg">
+                        <p className="tw-max-w-sm md:tw-max-w-xl tw-font-medium tw-text-lg tw-text-gray-400">
                             I love to create things to learn something new. I'm
                             always trying my best to put the effective and the
                             pleasant together in each of my projects!
