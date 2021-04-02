@@ -4,7 +4,7 @@
 
 @font-face {
     font-family: "Epilogue";
-    src: url("/fonts/Epilogue/Epilogue[wght].woff2");
+    src: url("/fonts/Epilogue/Epilogue.woff2");
     font-weight: 400 800;
     font-style: normal;
 }
@@ -52,35 +52,28 @@ text-xs {
 .has-tooltip {
     position: relative !important;
 }
-.tooltip {
-    @apply tw-invisible tw-absolute tw-inline-block;
-    @apply tw-opacity-0 tw-transition-opacity;
-    @apply tw-bg-gray-600 tw-text-gray-300 tw-rounded-sm tw-shadow-lg tw-font-bold;
-    @apply tw-px-3 tw-py-2;
 
-    top: 50%;
-    /* right: -50%; */
-    left: 128%;
-    /* margin-left: 5em; */
-
-    transform: translate(0%, -50%);
-
-    /* left: 6.5em; */
+@layer components {
+    .tooltip {
+        @apply tw-absolute tw-invisible tw-hidden;
+        @apply tw-opacity-0 tw-transition-opacity;
+        @apply tw-bg-gray-600 tw-text-gray-300 tw-rounded-sm tw-shadow-lg tw-font-bold;
+        @apply tw-px-2 tw-py-2;
+        @apply tw-z-50;
+    }
 }
-.tooltip.tooltip-right {
+
+.tooltip-right {
+    @apply tooltip;
+
     top: 50%;
-    right: initial;
     left: 128%;
-    bottom: initial;
-    /* margin-left: 5em; */
 
     transform: translate(0%, -50%);
 }
 .tooltip.tooltip-left {
     top: 50%;
-    left: initial;
     right: 128%;
-    bottom: initial;
     /* margin-left: 5em; */
 
     transform: translate(0%, -50%);
@@ -93,7 +86,7 @@ text-xs {
 
     position: absolute;
     top: 50%;
-    left: -4px;
+    left: -10px;
     transform: translate(-50%, -50%);
 
     border-top: solid 8px transparent;
@@ -104,8 +97,7 @@ text-xs {
     @apply tw-border-r-8;
 
     top: 50%;
-    left: -4px;
-    transform: translate(-50%, -50%);
+    left: -3px;
 
     border-top: solid 8px transparent;
     border-bottom: solid 8px transparent;
@@ -115,15 +107,14 @@ text-xs {
     @apply tw-border-l-8;
 
     top: 50%;
-    right: 1px;
-    transform: translate(100%, -50%);
+    left: calc(100% + 3px);
 
     border-top: solid 8px transparent;
     border-bottom: solid 8px transparent;
 }
 
 .has-tooltip:hover .tooltip {
-    @apply tw-visible tw-z-50;
+    @apply tw-visible tw-block tw-z-50;
     @apply tw-opacity-100;
 }
 
@@ -135,21 +126,19 @@ main * {
 
 /* sidebar elements */
 
-.sidebar .click-sidebar {
-    @apply tw-flex tw-py-4 tw-px-1 tw-flex-col tw-justify-items-center tw-items-center;
-    @apply tw-rounded-md tw-text-gray-500;
-    @apply tw-cursor-pointer;
-    @apply tw-w-14;
-    @apply tw-transition-colors;
-    font-size: 0.65rem;
-}
-.sidebar-item-list .click-sidebar {
-    @apply tw-my-1;
-}
 
 /* End sidebar elements */
 
-.technology:last-of-type {
+.badge:last-of-type {
     margin-right: 0 !important;
 }
 
+#card,
+#projects {
+    z-index: 1;
+}
+
+#card:hover {
+    /* @apply tw-transition-transform; */
+    transform: scale(1.02);
+}
