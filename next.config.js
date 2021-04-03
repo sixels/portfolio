@@ -1,7 +1,6 @@
-const serverURL = process.env.NODE_ENV === "production" ? "https://protoshark.github.io/" : "";
-
 module.exports = {
-    assetPrefix: serverURL,
+    basePath: "/portifolio",
+    assetPrefix: "/portifolio/",
     future: {
         webpack5: true,
     }
