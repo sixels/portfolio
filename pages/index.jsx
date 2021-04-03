@@ -24,7 +24,7 @@ export default function Home() {
                 <title> Portifolio - Protoshark </title>
                 <link
                     rel="preload"
-                    href="/fonts/Epilogue/Epilogue.woff2"
+                    href="/portifolio/fonts/Epilogue/Epilogue.woff2"
                     as="font"
                     crossOrigin=""
                 />
@@ -135,7 +135,7 @@ export default function Home() {
                         <div className="about-text tw-flex tw-flex-col tw-items-center md:tw-block ">
                             <img
                                 className="tw-w-32 tw-mx-4 tw-mb-6 md:tw-my-0 tw-float-none md:tw-float-right tw-overflow-hidden tw-rounded-lg tw-shadow-lg"
-                                src="/images/jpg/yellow-square.jpg"
+                                src="/portifolio/images/jpg/yellow-square.jpg"
                                 alt=""
                             />
                             <p className="lg:tw-mx-20 tw-text-base tw-text-gray-400">
