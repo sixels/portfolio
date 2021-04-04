@@ -25,7 +25,7 @@ const position = function (start, end, elapsed, duration) {
 // if the first argument is numeric then scroll to this location
 // if the callback exist, it is called when the scrolling is finished
 // if context is set then scroll that element, else scroll window
-const smoothScroll = function (el, duration, callback, context) {
+const _smoothScroll = function (el, duration, callback, context) {
     duration = duration || 500
     context = context || window
     const start = context.scrollTop || window.pageYOffset
@@ -63,7 +63,7 @@ const smoothScroll = function (el, duration, callback, context) {
     }
     step()
 }
-export default (url) => {
+export default function smoothScroll(url) {
     return new Promise(function (resolve, reject) {
         const pattern = /^(\/#.+)|(.+(\/#.+))$/
         if (pattern.test(url)) {
@@ -74,7 +74,7 @@ export default (url) => {
             const id = hash.replace(/\/?#/, "")
             const el = document.getElementById(id)
             if (el) {
-                smoothScroll(el, 600, resolve)
+                _smoothScroll(el, 600, resolve)
                 return
             }
         }
