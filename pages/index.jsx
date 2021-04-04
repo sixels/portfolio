@@ -140,7 +140,7 @@ export default function Home() {
                                 alt=""
                             />
                             <p className="lg:tw-mx-20 tw-text-base tw-text-gray-400">
-                                Hello, I'm an in-progress self-taught CS student
+                                Hello! I'm an in-progress self-taught CS student
                                 who loves to create things. I'm looking for a
                                 job experience as a web or backend developer,
                                 any invite is welcome! I love to learn new
