@@ -11,7 +11,6 @@ import {
 import { SiLinkedin } from "react-icons/si"
 
 import Card from "../components/Card"
-// import Sidebar from "../components/Sidebar"
 import Tooltip from "../components/Tooltip"
 import LinkScroll from "../components/LinkScroll"
 
@@ -21,10 +20,10 @@ export default function Home() {
     return (
         <div className="tw-w-full tw-max-w-screen tw-h-full tw-relative tw-flex tw-flex-col">
             <Head>
-                <title> Portifolio - Protoshark </title>
+                <title> Portfolio - Protoshark </title>
                 <link
                     rel="preload"
-                    href="/portifolio/fonts/Epilogue/Epilogue.woff2"
+                    href="/portfolio/fonts/Epilogue/Epilogue.woff2"
                     as="font"
                     crossOrigin=""
                 />
@@ -64,7 +63,7 @@ export default function Home() {
                                 </div>
                             </Link>
 
-                            <Link href="/blog">
+                            <Link href="https://protoshark.github.io/blog">
                                 <div className="has-tooltip tw-text-gray-500 tw-text-opacity-80 hover:tw-text-yellow-400 tw-transition-colors">
                                     <IconPen size="1.4em" />
                                     <Tooltip
@@ -111,7 +110,9 @@ export default function Home() {
                     <section className="hero-text tw-container md:tw-mx-auto tw-mb-18 tw-px-6 tw-pt-28 md:tw-px-12">
                         <h1 className="tw-text-4xl tw-mb-1 tw-font-extrabold">
                             Hey, I'm{" "}
-                            <a className=" tw-text-yellow-400">Protoshark</a>
+                            <span className=" tw-text-yellow-400">
+                                Protoshark
+                            </span>
                         </h1>
                         <p className="tw-max-w-sm md:tw-max-w-xl tw-font-medium tw-text-lg tw-text-gray-400">
                             I love to create things to learn something new. I'm
@@ -135,18 +136,17 @@ export default function Home() {
                         <div className="about-text tw-flex tw-flex-col tw-items-center md:tw-block ">
                             <img
                                 className="tw-w-32 tw-mx-4 tw-mb-6 md:tw-my-0 tw-float-none md:tw-float-right tw-overflow-hidden tw-rounded-lg tw-shadow-lg"
-                                src="/portifolio/images/jpg/yellow-square.jpg"
+                                src="https://avatars.githubusercontent.com/u/68879242?v=4"
                                 alt=""
                             />
                             <p className="lg:tw-mx-20 tw-text-base tw-text-gray-400">
-                                I'm an in-progress self taught student who loves
-                                programming. I live in Brazil and love to learn
-                                new technologies, I'm currently studying React
-                                and compilers (two things completely different,
-                                I know, but that's the spirit). I like old
-                                consoles and I'm trying to create my own Gameboy
-                                emulator (as soon as I finish my CHIP-8
-                                interpreter)! I also do some web development.
+                                Hello, I'm an in-progress self-taught CS student
+                                who loves to create things. I'm looking for a
+                                job experience as a web or backend developer,
+                                any invite is welcome! I love to learn new
+                                things such as compilers, emulators and
+                                improving my web development stack (currently
+                                focusing on React/Next and Node.js).
                             </p>
                         </div>
                     </div>
@@ -208,22 +208,21 @@ export default function Home() {
                                 wip={true}
                             />
 
-                            <a
-                                id="card"
-                                href="/projects"
-                                target="_blank"
-                                rel="noopener"
-                                className="tw-cursor-pointer tw-relative tw-py-8 tw-overflow-hidden tw-bg-gray-200 tw-bg-opacity-100 tw-flex tw-flex-col  tw-rounded-lg tw-shadow-xl"
-                            >
-                                <section className="card-description tw-grid tw-place-items-center tw-px-2 tw-pt-4 tw-z-10">
-                                    <h1 className="more tw-text-gray-900 tw-text-5xl tw-text-center ">
-                                        Check Out{" "}
-                                        <a className="tw-text-yellow-500 tw-p-0 tw-m-0">
-                                            More!
-                                        </a>
-                                    </h1>
-                                </section>
-                            </a>
+                            <Link href="https://github.com/protoshark?tab=repositories">
+                                <div
+                                    id="card"
+                                    className="tw-cursor-pointer tw-relative tw-py-8 tw-overflow-hidden tw-bg-gray-200 tw-bg-opacity-100 tw-flex tw-flex-col  tw-rounded-lg tw-shadow-xl"
+                                >
+                                    <section className="card-description tw-grid tw-place-items-center tw-px-2 tw-pt-4 tw-z-10">
+                                        <h1 className="more tw-text-gray-900 tw-text-5xl tw-text-center ">
+                                            Check Out{" "}
+                                            <span className="tw-text-yellow-500 tw-p-0 tw-m-0">
+                                                More!
+                                            </span>
+                                        </h1>
+                                    </section>
+                                </div>
+                            </Link>
                         </div>
                     </div>
                 </div>

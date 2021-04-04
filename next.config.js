@@ -1,6 +1,6 @@
 module.exports = {
-    basePath: "/portifolio",
-    assetPrefix: "/portifolio/",
+    basePath: "/portfolio",
+    assetPrefix: "/portfolio/",
     future: {
         webpack5: true,
     }
