@@ -10,11 +10,11 @@ export default function Card({
     return (
         <div
             id="card"
-            className="tw-relative tw-pb-8 tw-overflow-hidden tw-bg-gray-900  tw-flex tw-flex-col  tw-rounded-lg tw-shadow-xl"
+            className="tw-relative tw-pb-8  tw-bg-gray-900  tw-flex tw-flex-col  tw-rounded-lg tw-shadow-xl"
         >
             {/* <div className="project-image tw-h-40 tw-flex tw-items-center tw-bg-gradient-to-tl tw-from-gray-900 tw-to-yellow-900" /> */}
 
-            <div className="projectInitial tw-opacity-40 tw-select-none tw-absolute tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-gray-500 tw-to-gray-800 tw-grid tw-bg-clip-text">
+            <div className="projectInitial tw-overflow-hidden tw-opacity-40 tw-select-none tw-absolute tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-gray-500 tw-to-gray-800 tw-grid tw-bg-clip-text">
                 <h1
                     className="tw-text-gray-900 tw-uppercase tw-ml-20 tw-text-opacity-60 tw-whitespace-nowrap tw-place-self-end tw-mb-12"
                     style={{ fontSize: "12rem" }}
@@ -37,7 +37,7 @@ export default function Card({
 
                         {badges &&
                             badges.map((badge) => (
-                                <div className="badge has-tooltip tw-rounded-full tw-bg-opacity-40 tw-bg-gray-600 tw-p-2 tw-mx-1">
+                                <div key={badge.name} className="badge has-tooltip tw-rounded-full tw-bg-opacity-40 tw-bg-gray-600 tw-p-2 tw-mx-1">
                                     {badge.icon}
                                     {badge.tooltip}
                                 </div>
@@ -53,6 +53,7 @@ export default function Card({
                         <div className="badges tw-text-yellow-800 tw-flex">
                             {footer_badges.map((badge) => (
                                 <a
+                                    key={badge.name}
                                     target="_blank"
                                     rel="noopener"
                                     href={badge.link}
