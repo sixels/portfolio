@@ -7,6 +7,7 @@ import {
     FiUser as IconUser,
     FiEdit3 as IconPen,
     FiCode as IconCode,
+    FiArrowRightCircle,
 } from "react-icons/fi"
 import { SiLinkedin } from "react-icons/si"
 
@@ -18,7 +19,7 @@ import * as badges from "../utils/badges"
 
 export default function Home() {
     return (
-        <div className="tw-w-full tw-max-w-screen tw-h-full tw-relative tw-flex tw-flex-col">
+        <>
             <Head>
                 <title> Portfolio - Protoshark </title>
                 <link
@@ -33,12 +34,10 @@ export default function Home() {
                 />
             </Head>
 
-            {/* <Sidebar /> */}
-
             {/* Main content */}
-            <main className="tw-min-h-full  content tw-text-gray-100">
+            <main className="content tw-text-gray-100">
                 {/* Hero */}
-                <div className="hero tw-relative tw-h-4/5 tw-flex tw-flex-col tw-justify-center tw-bg-gradient-to-b tw-from-gray-900 tw-to-gray-800">
+                <div className="hero tw-relative tw-flex tw-flex-col tw-justify-center tw-bg-gradient-to-b tw-from-gray-900 tw-to-gray-800">
                     <div className="social tw-absolute tw-right-0 tw-top-0 tw-mt-8 tw-mr-6">
                         <div className="social-list tw-grid tw-gap-y-6 tw-grid-rows-2 tw-grid-cols-1">
                             <Link href="https://github.com/protoshark">
@@ -128,17 +127,18 @@ export default function Home() {
                     id="about"
                     className="wrapper tw-my-16 tw-pt-10 tw-grid tw-place-items-start tw-mb-20"
                 >
-                    <div className="resume tw-w-4/5 md:tw-w-3/5 tw-flex tw-flex-col tw-py-11 tw-bg-gray-900 tw-px-10 tw-rounded-r-2xl tw-shadow-lg">
+                    <div className="about tw-w-4/5 md:tw-w-3/5 tw-flex tw-flex-col tw-py-11 tw-bg-gray-900 tw-px-10 tw-rounded-r-2xl tw-shadow-lg">
                         <h3 className="tw-font-extrabold tw-self-center tw-text-3xl tw-mb-4 tw-text-gray-300">
                             About me
                         </h3>
 
-                        <div className="about-text tw-flex tw-flex-col tw-items-center md:tw-block ">
-                            <img
-                                className="tw-w-32 tw-mx-4 tw-mb-6 md:tw-my-0 tw-float-none md:tw-float-right tw-overflow-hidden tw-rounded-lg tw-shadow-lg"
-                                src="https://avatars.githubusercontent.com/u/68879242?v=4"
-                                alt=""
-                            />
+                        <div className="about-text tw-flex tw-flex-col tw-items-center md:tw-block">
+                            <div className="about-pic tw-relative tw-overflow-hidden tw-p-0 tw-w-32 tw-float-none md:tw-float-right tw-mx-4 tw-mb-6 md:tw-my-0 tw-rounded-2xl tw-shadow-lg">
+                                <img
+                                    src="https://avatars.githubusercontent.com/u/68879242?v=4"
+                                    alt=""
+                                />
+                            </div>
                             <p className="lg:tw-mx-20 tw-text-base tw-text-gray-400">
                                 Hello! I'm an in-progress self-taught CS student
                                 who loves to create things. I'm looking for a
@@ -157,9 +157,9 @@ export default function Home() {
                 <div className="wrapper tw-min-h-full tw-grid tw-place-items-center tw-mb-16 md:tw-mb-20">
                     <div
                         id="projects"
-                        className="tw-bg-yellow-500 projects tw-container md:tw-max-w-3xl lg:tw-max-w-6xl tw-mx-auto tw-my-8 lg:tw-my-0 tw-py-4 tw-px-4 tw-pb-3 tw-rounded-xl tw-shadow-lg"
+                        className="tw-bg-yellow-500 tw-group projects tw-container md:tw-max-w-3xl lg:tw-max-w-6xl tw-mx-auto tw-my-8 lg:tw-my-0 tw-py-4 tw-px-4 tw-pb-3 tw-rounded-xl tw-shadow-lg"
                     >
-                        <h2 className="section-title tw-ml-2 tw-mb-2 tw-font-extrabold tw-text-yellow-900">
+                        <h2 className="section-title tw-ml-2 tw-mb-2 tw-font-extrabold tw-text-gray-900">
                             My Favorite Projects
                         </h2>
 
@@ -191,7 +191,7 @@ export default function Home() {
 
                             <Card
                                 title="Cello"
-                                description="Cello is a linux floating Window Manager designed under the KISS concept."
+                                description="Cello is a linux floating Window Manager designed under the KISS philosophy."
                                 badges={[badges.clang]}
                                 footer_badges={[
                                     badges.github("vnteles/cellowm"),
@@ -208,57 +208,53 @@ export default function Home() {
                                 wip={true}
                             />
 
-                            <Link href="https://github.com/protoshark?tab=repositories">
-                                <div
-                                    id="card"
-                                    className="tw-cursor-pointer tw-relative tw-py-8 tw-overflow-hidden tw-bg-gray-200 tw-bg-opacity-100 tw-flex tw-flex-col  tw-rounded-lg tw-shadow-xl"
-                                >
-                                    <section className="card-description tw-grid tw-place-items-center tw-px-2 tw-pt-4 tw-z-10">
-                                        <h1 className="more tw-text-gray-900 tw-text-5xl tw-text-center ">
-                                            Check Out{" "}
-                                            <span className="tw-text-yellow-500 tw-p-0 tw-m-0">
-                                                More!
-                                            </span>
+                            <div
+                                id="card"
+                                className=" tw-relative tw-flex tw-items-center tw-justify-center lg:tw-justify-start tw-col-span-1 md:tw-col-span-2 tw-py-8 md:tw-opacity-60  group-hover:tw-opacity-100 tw-transition-opacity"
+                            >
+                                <Link href="https://github.com/protoshark?tab=repositories">
+                                    <div className="tw-cursor-pointer tw-text-gray-100 tw-opacity-90 md:tw-opacity-40 hover:tw-opacity-90 tw-transition-opacity tw-flex tw-items-center card-description  tw-px-2 tw-z-10">
+                                        <FiArrowRightCircle className="tw-text-3xl sm:tw-text-4xl tw-mr-1" />
+                                        <h1 className="more tw-text-3xl sm:tw-text-4xl tw-text-center tw-mt-1">
+                                            Check Out More
                                         </h1>
-                                    </section>
-                                </div>
-                            </Link>
+                                    </div>
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>
                 {/* End projects */}
-
-                {/* Footer */}
-                <footer
-                    id="footer"
-                    className="tw-bg-gradient-to-bl tw-border-gray-700 tw-border-l-2 tw-border-r-2 tw-border-t-2 tw-border-solid tw-from-gray-900 tw-to-gray-800 tw-h-1/3 tw-rounded-t-3xl"
-                >
-                    <div className="footer-content tw-relative tw-h-full tw-pt-10 tw-flex tw-flex-col md:tw-flex-row tw-justify-center tw-items-center  tw-text-gray-600">
-                        <div className="center-footer tw-flex tw-items-center tw-justify-center md:tw-w-1/3">
-                            Made with ❤️ in Brazil
-                        </div>
-
-                        <div
-                            id="contact"
-                            className="right-footer md:tw-w-1/3 contact-email tw-flex tw-flex-row tw-items-center tw-justify-center tw-transition-colors "
-                        >
-                            <div className="footer-item tw-flex tw-flex-row tw-items-center tw-px-2 hover:tw-text-yellow-300">
-                                <div className="email-icon ">
-                                    <IconMail />
-                                </div>
-                                <a
-                                    href="mailto:protoshark@protonmail.com"
-                                    className="email tw-ml-2"
-                                >
-                                    protoshark@protonmail.com
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-                {/* End Footer */}
             </main>
             {/* End main content  */}
-        </div>
+
+            {/* Footer */}
+            <footer
+                id="footer"
+                className="tw-bg-gradient-to-bl tw-border-gray-700 tw-border-l-2 tw-border-r-2 tw-border-t-2 tw-border-solid tw-from-gray-900 tw-to-gray-800 tw-h-1/3 tw-rounded-t-3xl"
+            >
+                <div className="footer-content tw-relative tw-h-full tw-pt-10 tw-flex tw-flex-col md:tw-flex-row tw-justify-center tw-items-center  tw-text-gray-600">
+                    <div className="center-footer tw-flex tw-items-center tw-justify-center md:tw-w-1/3">
+                        Made with ❤️ in Brazil
+                    </div>
+
+                    <div className="right-footer md:tw-w-1/3 contact-email tw-flex tw-flex-row tw-items-center tw-justify-center tw-transition-colors ">
+                        <div className="footer-item tw-flex tw-flex-row tw-items-center tw-px-2 hover:tw-text-yellow-300">
+                            <div className="email-icon ">
+                                <IconMail />
+                            </div>
+                            <a
+                                id="contact"
+                                href="mailto:protoshark@protonmail.com"
+                                className="email tw-ml-2"
+                            >
+                                protoshark@protonmail.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            {/* End Footer */}
+        </>
     )
 }

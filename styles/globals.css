@@ -126,7 +126,6 @@ main * {
 
 /* sidebar elements */
 
-
 /* End sidebar elements */
 
 .badge:last-of-type {
@@ -139,10 +138,12 @@ main * {
 }
 
 #card:hover {
-    /* @apply tw-transition-transform; */
+    @apply tw-transition-transform;
     transform: scale(1.02);
 }
-
+.hero {
+    height: calc(100vh - 8rem);
+}
 .hero .streamline {
     height: calc(100% - 5.8em - 3rem - 2rem);
     width: calc(35% - 3.5rem);
@@ -155,11 +156,43 @@ main * {
     @apply tw-border-yellow-500 tw-border-2 tw-shadow-lg;
     @apply tw-bg-gray-800;
 
-
     position: absolute;
-    bottom: -.5em;
-    right: -.5em;
+    bottom: -0.5em;
+    right: -0.5em;
 }
 .anchors {
     margin-right: 35%;
 }
+
+.about-pic::after {
+    content: "";
+    z-index: 20;
+    /* transition: all 1s; */
+    display: block;
+    position: absolute;
+
+    height: 100%;
+    width: 100%;
+
+    bottom: 0;
+    left: -100%;
+
+    background-color: #fff1;
+    -webkit-clip-path: polygon(25% 0, 75% 0, 50% 100%, 0 100%);
+    clip-path: polygon(25% 0, 75% 0, 50% 100%, 0 100%);
+
+}
+.about-pic:hover::after {
+    animation: ease 470ms flash;
+    /* left: 100%; */
+}
+
+@keyframes flash {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
