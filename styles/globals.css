@@ -57,7 +57,7 @@ text-xs {
     .tooltip {
         @apply tw-absolute tw-invisible tw-hidden;
         @apply tw-opacity-0 tw-transition-opacity;
-        @apply tw-bg-gray-600 tw-text-gray-300 tw-rounded-sm tw-shadow-lg tw-font-bold;
+        @apply tw-bg-gray-500 tw-text-gray-100 tw-rounded-sm tw-shadow-lg tw-font-bold;
         @apply tw-px-2 tw-py-2 tw-text-center;
         @apply tw-z-50;
     }
@@ -80,7 +80,7 @@ text-xs {
 }
 
 .tooltip::after {
-    @apply tw-border-r-8 tw-border-gray-600;
+    @apply tw-border-r-8 tw-border-gray-500;
 
     content: "";
 
@@ -153,7 +153,7 @@ main * {
     width: 1em;
     height: 1em;
 
-    @apply tw-border-yellow-500 tw-border-2 tw-shadow-lg;
+    @apply tw-border-primary-500 tw-border-2 tw-shadow-lg;
     @apply tw-bg-gray-800;
 
     position: absolute;
@@ -163,36 +163,3 @@ main * {
 .anchors {
     margin-right: 35%;
 }
-
-.about-pic::after {
-    content: "";
-    z-index: 20;
-    /* transition: all 1s; */
-    display: block;
-    position: absolute;
-
-    height: 100%;
-    width: 100%;
-
-    bottom: 0;
-    left: -100%;
-
-    background-color: #fff1;
-    -webkit-clip-path: polygon(25% 0, 75% 0, 50% 100%, 0 100%);
-    clip-path: polygon(25% 0, 75% 0, 50% 100%, 0 100%);
-
-}
-.about-pic:hover::after {
-    animation: ease 470ms flash;
-    /* left: 100%; */
-}
-
-@keyframes flash {
-    0% {
-        left: -100%;
-    }
-    100% {
-        left: 100%;
-    }
-}
-

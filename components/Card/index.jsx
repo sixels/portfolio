@@ -10,26 +10,26 @@ export default function Card({
     return (
         <div
             id="card"
-            className="tw-relative tw-pb-8  tw-bg-gray-900  tw-flex tw-flex-col  tw-rounded-lg tw-shadow-xl"
+            className="tw-relative tw-pb-8  tw-bg-gray-900  tw-flex tw-flex-col  tw-rounded-lg tw-shadow-md"
         >
-            {/* <div className="project-image tw-h-40 tw-flex tw-items-center tw-bg-gradient-to-tl tw-from-gray-900 tw-to-yellow-900" /> */}
+            {/* <div className="project-image tw-h-40 tw-flex tw-items-center tw-bg-gradient-to-tl tw-from-gray-900 tw-to-primary-900" /> */}
 
             <div className="projectInitial tw-overflow-hidden tw-opacity-40 tw-select-none tw-absolute tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-gray-500 tw-to-gray-800 tw-grid tw-bg-clip-text">
                 <h1
-                    className="tw-text-gray-900 tw-uppercase tw-ml-20 tw-text-opacity-60 tw-whitespace-nowrap tw-place-self-end tw-mb-12"
+                    className="tw-text-gray-700 tw-uppercase tw-ml-20 tw-text-opacity-60 tw-whitespace-nowrap tw-place-self-end tw-mb-12"
                     style={{ fontSize: "12rem" }}
                 >
                     {title}
                 </h1>
             </div>
 
-            <section className="card-description tw-px-2 tw-pt-8 tw-z-10">
+            <section className="card-description tw-px-4 tw-pt-8 tw-z-10">
                 <div className="project-name tw-flex tw-flex-row tw-justify-between tw-items-center">
                     <h3>{title}</h3>
 
                     <div className="badges tw-text-gray-200 tw-flex">
                         {wip && (
-                            <div className="badge has-tooltip tw-rounded-full tw-bg-opacity-40 tw-bg-yellow-400 tw-p-2 tw-mx-1 tw-text-yellow-400">
+                            <div className="badge has-tooltip tw-rounded-full tw-bg-opacity-40 tw-bg-primary-500 tw-p-2 tw-mx-1 tw-text-primary-400">
                                 {WipBadge.icon}
                                 {WipBadge.tooltip}
                             </div>
@@ -37,7 +37,7 @@ export default function Card({
 
                         {badges &&
                             badges.map((badge) => (
-                                <div key={badge.name} className="badge has-tooltip tw-rounded-full tw-bg-opacity-40 tw-bg-gray-600 tw-p-2 tw-mx-1">
+                                <div key={badge.name} className="badge has-tooltip tw-rounded-full tw-bg-opacity-40 tw-bg-gray-500 tw-p-2 tw-mx-1">
                                     {badge.icon}
                                     {badge.tooltip}
                                 </div>
@@ -45,19 +45,19 @@ export default function Card({
                     </div>
                 </div>
 
-                <p className="card-description-text tw-py-3 tw-text-gray-400">
+                <p className="card-description-text tw-py-3 tw-text-gray-200">
                     {description}
                 </p>
-                <div className="card-footer tw-absolute tw-bottom-0 tw-right-0 tw-flex tw-flex-row tw-pb-2 tw-pr-2">
+                <div className="card-footer tw-absolute tw-bottom-0 tw-right-0 tw-flex tw-flex-row tw-pb-2 tw-pr-5">
                     {footer_badges && (
-                        <div className="badges tw-text-yellow-800 tw-flex">
+                        <div className="badges tw-flex">
                             {footer_badges.map((badge) => (
                                 <a
                                     key={badge.name}
                                     target="_blank"
                                     rel="noopener"
                                     href={badge.link}
-                                    className="badge has-tooltip tw-rounded-full tw-bg-yellow-400 tw-p-2 tw-mx-1"
+                                    className="badge has-tooltip tw-rounded-full tw-text-gray-200 tw-bg-gray-700 tw-p-2 tw-mx-1"
                                 >
                                     {badge.icon}
                                     {badge.tooltip}
