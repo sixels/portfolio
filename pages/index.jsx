@@ -7,7 +7,6 @@ import {
     FiUser as IconUser,
     FiEdit3 as IconPen,
     FiCode as IconCode,
-    FiArrowRightCircle,
 } from "react-icons/fi"
 import { SiLinkedin } from "react-icons/si"
 
