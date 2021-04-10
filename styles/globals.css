@@ -2,51 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-    font-family: "Epilogue";
-    src: url("/portfolio/fonts/Epilogue/Epilogue.woff2");
-    font-weight: 400 800;
-    font-style: normal;
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
 }
 
 html,
 body,
 #__next {
+    @apply tw-bg-gray-800;
     padding: 0;
     margin: 0;
     height: 100%;
-    @apply tw-bg-gray-800;
 }
 
-/* Global elements */
-* {
-    box-sizing: border-box;
-}
+@layer base {
+    @font-face {
+        font-family: "Epilogue";
+        src: url("/portfolio/fonts/Epilogue/Epilogue.woff2");
+        font-weight: 400 800;
+        font-style: normal;
+    }
+    h1 {
+        @apply tw-font-extrabold tw-text-3xl tw-text-gray-800;
+    }
 
-h1 {
-    @apply tw-font-extrabold tw-text-3xl tw-text-gray-800;
-}
+    h2 {
+        @apply tw-font-bold tw-text-2xl tw-text-gray-800;
+    }
 
-h2 {
-    @apply tw-font-bold tw-text-2xl tw-text-gray-800;
-}
-
-h3 {
-    @apply tw-font-bold tw-text-xl tw-text-gray-800;
-}
-
-text-xs {
-    font-size: 0.1rem;
-    line-height: 1rem;
-}
-
-.transition-slow {
-    transition-timing-function: ease-in-out;
-    transition-duration: 0.2s;
-}
-.transition-width {
-    /* transition-property: width; */
-    transition: all ease 3s;
+    h3 {
+        @apply tw-font-bold tw-text-xl tw-text-gray-800;
+    }
 }
 
 .has-tooltip {

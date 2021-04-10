@@ -31,6 +31,20 @@ export default function Home() {
                     name="viewport"
                     content="initial-scale=1.0, width=device-width, user-scalable=no"
                 />
+
+                <meta
+                    property="og:title"
+                    content="Portfolio - Protoshark"
+                    key="title"
+                />
+                <meta
+                    name="description"
+                    content="My personal portfolio webpage"
+                />
+                <meta
+                    property="og:description"
+                    content="My personal portfolio webpage"
+                />
             </Head>
 
             {/* Main content */}
