@@ -1,19 +1,11 @@
 import { wip as WipBadge } from "../../utils/badges"
 
-export default function Card({
-    badges,
-    title,
-    description,
-    footer_badges,
-    wip,
-}) {
+const Card = ({ badges, title, description, footer_badges, wip }) => {
     return (
         <div
             id="card"
             className="tw-relative tw-pb-8  tw-bg-gray-900  tw-flex tw-flex-col  tw-rounded-lg tw-shadow-md"
         >
-            {/* <div className="project-image tw-h-40 tw-flex tw-items-center tw-bg-gradient-to-tl tw-from-gray-900 tw-to-primary-900" /> */}
-
             <div className="projectInitial tw-overflow-hidden tw-opacity-40 tw-select-none tw-absolute tw-w-full tw-h-full tw-bg-gradient-to-br tw-from-gray-500 tw-to-gray-800 tw-grid tw-bg-clip-text">
                 <h1
                     className="tw-text-gray-700 tw-uppercase tw-ml-20 tw-text-opacity-60 tw-whitespace-nowrap tw-place-self-end tw-mb-12"
@@ -37,7 +29,10 @@ export default function Card({
 
                         {badges &&
                             badges.map((badge) => (
-                                <div key={badge.name} className="badge has-tooltip tw-rounded-full tw-bg-opacity-40 tw-bg-gray-500 tw-p-2 tw-mx-1">
+                                <div
+                                    key={badge.name}
+                                    className="badge has-tooltip tw-rounded-full tw-bg-opacity-40 tw-bg-gray-500 tw-p-2 tw-mx-1"
+                                >
                                     {badge.icon}
                                     {badge.tooltip}
                                 </div>
@@ -70,3 +65,5 @@ export default function Card({
         </div>
     )
 }
+
+export default Card

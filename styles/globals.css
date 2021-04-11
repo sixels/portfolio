@@ -130,7 +130,7 @@ main * {
     transform: scale(1.02);
 }
 .hero {
-    height: calc(100vh - 8rem);
+    height: calc(100vh - 4.9rem);
 }
 .hero .streamline {
     height: calc(100% - 5.8em - 3rem - 2rem);

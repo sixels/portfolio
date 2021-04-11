@@ -8,7 +8,23 @@ import {
     FiEdit3 as IconPen,
     FiCode as IconCode,
 } from "react-icons/fi"
-import { SiLinkedin } from "react-icons/si"
+import {
+    SiBootstrap,
+    SiC,
+    SiCss3,
+    SiGo,
+    SiHtml5,
+    SiJavascript,
+    SiLinkedin,
+    SiNextDotJs,
+    SiNodeDotJs,
+    SiPostcss,
+    SiPython,
+    SiReact,
+    SiRust,
+    SiTailwindcss,
+    SiVueDotJs,
+} from "react-icons/si"
 
 import Card from "../components/Card"
 import Tooltip from "../components/Tooltip"
@@ -16,7 +32,7 @@ import LinkScroll from "../components/LinkScroll"
 
 import * as badges from "../utils/badges"
 
-export default function Home() {
+const Home = () => {
     return (
         <>
             <Head>
@@ -50,8 +66,8 @@ export default function Home() {
             {/* Main content */}
             <main className="content tw-text-gray-100">
                 {/* Hero */}
-                <div className="hero tw-relative tw-flex tw-flex-col tw-justify-center tw-bg-gradient-to-b tw-from-gray-900 tw-to-gray-800">
-                    <div className="social tw-absolute tw-right-0 tw-top-0 tw-mt-8 tw-mr-6">
+                <div className=" hero tw-relative tw-flex tw-flex-col tw-justify-center tw-bg-gradient-to-b tw-from-gray-900 tw-to-gray-800">
+                    <div className="tw-z-10 social tw-absolute tw-right-0 tw-top-0 tw-mt-8 tw-mr-6">
                         <div className="social-list tw-grid tw-gap-y-6 tw-grid-rows-2 tw-grid-cols-1">
                             <Link href="https://github.com/protoshark">
                                 <div className="has-tooltip tw-text-gray-400 tw-text-opacity-80 hover:tw-text-primary-400 tw-transition-colors">
@@ -82,9 +98,9 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div className="streamline tw-absolute tw-border-primary-400 tw-border-r-2 tw-border-b-2 tw-right-0 tw-bottom-0 tw-mb-2 tw-mr-8" />
+                    <div className="tw-z-10 streamline tw-absolute tw-border-primary-400 tw-border-r-2 tw-border-b-2 tw-right-0 tw-bottom-0 tw-mb-2 tw-mr-8" />
 
-                    <div className="anchors tw-absolute tw-right-0 tw-bottom-0 tw-mr-80">
+                    <div className="tw-z-20 anchors tw-absolute tw-right-0 tw-bottom-0 tw-mr-80">
                         <div className="anchor-list tw-grid-flow-col tw-grid tw-gap-x-6">
                             <LinkScroll href="/#about">
                                 <div className="has-tooltip tw-text-gray-400 tw-text-opacity-80 hover:tw-text-primary-400 tw-transition-colors">
@@ -111,7 +127,7 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <section className="hero-text tw-container md:tw-mx-auto tw-mb-18 tw-px-6 tw-pt-28 md:tw-px-12">
+                    <section className="tw-z-10 hero-text tw-container md:tw-w-1/2 tw-mb-18 tw-px-6 tw-pt-28 md:tw-px-12">
                         <h1 className="tw-text-4xl tw-mb-1 tw-font-extrabold">
                             Hey, I'm{" "}
                             <span className=" tw-text-primary-400">
@@ -124,6 +140,52 @@ export default function Home() {
                             pleasant together in each of my projects!
                         </p>
                     </section>
+
+                    <div className="tw-opacity-30 md:tw-opacity-100 md:tw-visible bubbles tw-grid tw-place-items-end tw-absolute tw-overflow-hidden tw-w-full tw-h-full tw-transform">
+                        <div className="tw-w-full tw-relative tw-h-full tw-py-7 md:tw-w-1/3 md:tw-mr-20  tw-transform tw-grid tw-grid-cols-3 tw-gap-y-5 tw-gap-x-5 tw-grid-flow-row">
+                            <div className="bubble tw-col-span-2 tw-rounded-md tw-bg-gray-500 tw-bg-opacity-30 tw-grid tw-place-items-center">
+                                <span className="tw-text-primary-200 tw-text-opacity-40 tw-font-bold tw-text-4xl">
+                                    <SiC />
+                                </span>
+                            </div>
+
+                            <div className="bubble  tw-rounded-md tw-bg-gray-500 tw-bg-opacity-30 tw-grid tw-place-items-center">
+                                <span className="tw-text-primary-200 tw-text-opacity-40 tw-font-bold tw-text-4xl">
+                                    <SiPython />
+                                </span>
+                            </div>
+
+                            <div className="bubble  tw-h-32  tw-rounded-md tw-bg-gray-500 tw-bg-opacity-30  tw-grid tw-place-items-center">
+                                <span className="tw-text-primary-200 tw-text-opacity-40 tw-font-bold tw-text-4xl">
+                                    <SiRust />
+                                </span>
+                            </div>
+
+                            <div className="bubble  tw-rounded-md tw-bg-gray-500 tw-bg-opacity-30 tw-grid tw-place-items-center">
+                                <span className="tw-text-primary-200 tw-text-opacity-40 tw-font-bold tw-text-4xl">
+                                    <SiReact />
+                                </span>
+                                <span className="tw-text-primary-200 tw-text-opacity-40 tw-font-bold tw-text-4xl">
+                                    <SiNodeDotJs />
+                                </span>
+                                <span className="tw-text-primary-200 tw-text-opacity-40 tw-font-bold tw-text-4xl">
+                                    <SiJavascript />
+                                </span>
+                            </div>
+
+                            <div className="bubble tw-rounded-md tw-bg-gray-500 tw-bg-opacity-30 tw-grid tw-place-items-center">
+                                <span className="tw-text-primary-200 tw-text-opacity-40 tw-font-bold tw-text-4xl">
+                                    <SiHtml5 />
+                                </span>
+                                <span className="tw-text-primary-200 tw-text-opacity-40 tw-font-bold tw-text-4xl">
+                                    <SiCss3 />
+                                </span>
+                                <span className="tw-text-primary-200 tw-text-opacity-40 tw-font-bold tw-text-4xl">
+                                    <SiTailwindcss />
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 {/* End hero */}
 
@@ -133,9 +195,9 @@ export default function Home() {
                     className="wrapper tw-my-16 tw-pt-10 tw-grid tw-place-items-start tw-mb-20"
                 >
                     <div className="about tw-w-4/5 md:tw-w-3/5 tw-flex tw-flex-col tw-py-11 tw-bg-gray-900 tw-px-10 tw-rounded-r-2xl tw-shadow-md">
-                        <h3 className="tw-font-extrabold tw-self-center tw-text-3xl tw-mb-4 tw-text-gray-100">
+                        <h1 className="tw-font-extrabold tw-self-center tw-text-3xl tw-mb-4 tw-text-gray-100">
                             About me
-                        </h3>
+                        </h1>
 
                         <div className="about-text tw-flex tw-flex-col tw-items-center md:tw-block">
                             <div className="about-pic tw-ring-1 tw-ring-gray-400 tw-relative tw-p-0 tw-w-32 tw-float-none md:tw-float-right tw-mx-4 tw-mb-6 md:tw-my-0 tw-rounded-2xl tw-overflow-hidden tw-shadow-lg">
@@ -165,9 +227,9 @@ export default function Home() {
                         id="projects"
                         className="tw-bg-primary-500 tw-group projects tw-container md:tw-max-w-3xl lg:tw-max-w-6xl tw-py-4 tw-px-4 tw-pb-6 tw-rounded-xl tw-shadow-lg"
                     >
-                        <h2 className="section-title tw-ml-2 tw-mb-2 tw-font-extrabold tw-text-gray-900">
+                        <h1 className="section-title tw-ml-2 tw-mb-2 tw-font-extrabold tw-text-gray-900">
                             My Favorite Projects
-                        </h2>
+                        </h1>
 
                         <div className="main-projects tw-grid tw-grid-flow-row tw-grid-cols-1 md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-x-7 tw-gap-y-4">
                             <Card
@@ -206,13 +268,13 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="tw-relative  tw-flex tw-items-center tw-justify-center lg:tw-justify-start tw-col-span-1 md:tw-col-span-2 tw-py-8 md:tw-opacity-60  group-hover:tw-opacity-100 tw-transition-opacity">
-                        <Link href="https://github.com/protoshark?tab=repositories">
+                        <a href="https://github.com/protoshark?tab=repositories">
                             <div className="tw-rounded-md tw-ring-2  tw-px-3 tw-py-2 tw-ring-gray-100 tw-cursor-pointer tw-text-gray-100 tw-opacity-40 md:tw-opacity-40 hover:tw-opacity-90 tw-transition-opacity tw-flex tw-items-center card-description  tw-z-10">
                                 <span className=" tw-font-medium tw-text-xl tw-text-center tw-mt-1">
                                     other projects
                                 </span>
                             </div>
-                        </Link>
+                        </a>
                     </div>
                 </div>
                 {/* End projects */}
@@ -249,3 +311,5 @@ export default function Home() {
         </>
     )
 }
+
+export default Home
