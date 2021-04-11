@@ -19,11 +19,24 @@ body,
 
 @layer base {
     @font-face {
-        font-family: "Epilogue";
-        src: url("/portfolio/fonts/Epilogue/Epilogue.woff2");
-        font-weight: 400 800;
+        font-family: "SometypeMono";
+        src: url("/portfolio/fonts/SometypeMono/SometypeMono-Regular.woff2");
+        font-weight: 400;
         font-style: normal;
     }
+    @font-face {
+        font-family: "SometypeMono";
+        src: url("/portfolio/fonts/SometypeMono/SometypeMono-Medium.woff2");
+        font-weight: 500;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: "SometypeMono";
+        src: url("/portfolio/fonts/SometypeMono/SometypeMono-Bold.woff2");
+        font-weight: 700;
+        font-style: normal;
+    }
+
     h1 {
         @apply tw-font-extrabold tw-text-3xl tw-text-gray-800;
     }
@@ -45,7 +58,7 @@ body,
     .tooltip {
         @apply tw-absolute tw-invisible tw-hidden;
         @apply tw-opacity-0 tw-transition-opacity;
-        @apply tw-bg-gray-500 tw-text-gray-100 tw-rounded-sm tw-shadow-lg tw-font-bold;
+        @apply tw-bg-gray-500 tw-text-gray-100 tw-rounded-sm tw-shadow-lg tw-font-bold tw-text-sm;
         @apply tw-px-2 tw-py-2 tw-text-center;
         @apply tw-z-50;
     }
@@ -53,6 +66,7 @@ body,
 
 .tooltip-right {
     @apply tooltip;
+    font-size: 0.8rem;
 
     top: 50%;
     left: 128%;

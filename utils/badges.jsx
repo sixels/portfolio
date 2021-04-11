@@ -1,5 +1,6 @@
 import {
     SiC as IconC,
+    SiGo,
     SiJavascript,
     SiReact as IconReact,
     SiRust as IconRust,
@@ -12,7 +13,7 @@ import Tooltip from "../components/Tooltip"
 
 export const clang = {
     name: "clang",
-    icon: <IconC size=".8em" />,
+    icon: <IconC size="1.1em" />,
     tooltip: (
         <Tooltip width="7.9em" position="left">
             C Language
@@ -20,27 +21,38 @@ export const clang = {
     ),
 }
 
+export const go = {
+    name: "go",
+    icon: <SiGo size="1.1em" />,
+    tooltip: (
+        <Tooltip position="left">
+            Go
+        </Tooltip>
+    ),
+}
+
+
 export const js = {
     name: "js",
-    icon: <SiJavascript size=".8em" />,
+    icon: <SiJavascript size="1.1em" />,
     tooltip: <Tooltip position="left">Javascript</Tooltip>,
 }
 
 export const react = {
     name: "react",
-    icon: <IconReact size=".8em" />,
+    icon: <IconReact size="1.1em" />,
     tooltip: <Tooltip position="left">React</Tooltip>,
 }
 
 export const rust = {
     name: "rust",
-    icon: <IconRust size=".8em" />,
+    icon: <IconRust size="1.1em" />,
     tooltip: <Tooltip position="left">Rust</Tooltip>,
 }
 
 export const wasm = {
     name: "wasm",
-    icon: <IconWasm size=".8em" />,
+    icon: <IconWasm size="1.1em" />,
     tooltip: (
         <Tooltip width="8.9em" position="left">
             Web Assembly
@@ -50,7 +62,7 @@ export const wasm = {
 
 export const wip = {
     name: "wip",
-    icon: <FiAlertTriangle size=".8em" />,
+    icon: <FiAlertTriangle size="1.1em" />,
     tooltip: (
         <Tooltip width="6em" position="left">
             Work In Progress
@@ -73,7 +85,7 @@ export const website = (url) => ({
     name: "website",
     icon: <IconGlobe size="1.1em" />,
     tooltip: (
-        <Tooltip width="10em" position="left">
+        <Tooltip width="8em" position="left">
             Visit the website
         </Tooltip>
     ),

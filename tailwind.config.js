@@ -8,14 +8,7 @@ module.exports = {
     darkMode: false, // or 'media' or 'class'
     theme: {
         fontFamily: {
-            sans: [
-                "Epilogue",
-                "Roboto",
-                "Segoe UI",
-                "Fira Sans",
-                "Helvetica Neue",
-                "sans-serif",
-            ],
+            sans: ["SometypeMono", "monospace"],
         },
         colors: {
             gray: {
