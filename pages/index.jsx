@@ -69,12 +69,12 @@ const Home = () => {
 
         const offset = window.scrollY
 
-        if (offset >= 0 && offset < 200)
+        if (offset >= 0 && offset < 300)
             requestAnimationFrame(() => {
                 animate(ANIMATE_LANDING)
             })
 
-        if (offset >= 340 && offset < 850)
+        if (offset >= 240 && offset < 850)
             requestAnimationFrame(() => {
                 animate(ANIMATE_ABOUT)
             })
@@ -111,7 +111,7 @@ const Home = () => {
             })
 
         // handle scroll
-        if (window.scrollY == 0) {
+        if (window.scrollY >= 0 && window.scrollY < 300) {
             animate(ANIMATE_LANDING)
         }
 
