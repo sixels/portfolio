@@ -128,7 +128,7 @@ const Home = () => {
                 <title> Portfolio - Protoshark </title>
                 <link
                     rel="preload"
-                    href="/portfolio/fonts/SometypeMono-Regular.woff2"
+                    href="/portfolio/fonts/SometypeMono/SometypeMono-Regular.woff2"
                     as="font"
                     crossOrigin=""
                 />
