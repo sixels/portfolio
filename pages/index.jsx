@@ -1,5 +1,7 @@
 import Head from "next/head"
 import Link from "next/link"
+import { useEffect, useRef } from "react"
+import { TimelineMax, TweenMax } from "gsap"
 
 import {
     FiGithub as IconGH,
@@ -11,6 +13,7 @@ import {
 import {
     SiC,
     SiCss3,
+    SiGo,
     SiHtml5,
     SiJavascript,
     SiLinkedin,
@@ -27,7 +30,98 @@ import LinkScroll from "../components/LinkScroll"
 
 import * as badges from "../utils/badges"
 
+// animation bitflags
+const ANIMATE_LANDING = 1 << 0
+const ANIMATE_ABOUT = 1 << 1
+const ANIMATE_ALL = 0b11
+
 const Home = () => {
+    const landingRef = useRef(),
+        skillsRef = useRef(),
+        aboutRef = useRef()
+
+    const animation = useRef(0)
+
+    const landingTL = useRef()
+    const aboutTL = useRef()
+
+    const animationsOffset = {
+        [ANIMATE_LANDING]: () => landingTL,
+        [ANIMATE_ABOUT]: () => aboutTL,
+        [ANIMATE_ALL]: () => projectsTL,
+    }
+
+    const animate = (whichAnimation) => {
+        if ((animation.current & whichAnimation) === 0) {
+            const tlFunction = animationsOffset[whichAnimation]
+            if (tlFunction) {
+                const tl = tlFunction()
+                tl.current.play()
+                animation.current |= whichAnimation
+            }
+        }
+    }
+
+    const handleScroll = async () => {
+        if (!animation || (animation.current & ANIMATE_ALL) == ANIMATE_ALL) {
+            return
+        }
+
+        const offset = window.scrollY
+
+        if (offset >= 0 && offset < 200)
+            requestAnimationFrame(() => {
+                animate(ANIMATE_LANDING)
+            })
+
+        if (offset >= 340 && offset < 850)
+            requestAnimationFrame(() => {
+                animate(ANIMATE_ABOUT)
+            })
+    }
+
+    useEffect(() => {
+        // animate the landing section
+        landingTL.current = new TimelineMax({ paused: true })
+        landingTL.current
+            .set(landingRef.current, { y: 48 })
+            .to(landingRef.current, 1.02, {
+                y: -48,
+                autoAlpha: 1,
+                ease: "sine.inOut",
+            })
+            .to(
+                skillsRef.current,
+                1.18,
+                {
+                    autoAlpha: 1,
+                    ease: "sine.inOut",
+                },
+                "-=.6"
+            )
+
+        // animate the about section
+        aboutTL.current = new TimelineMax({ paused: true })
+        aboutTL.current
+            .add(TweenMax.set(aboutRef.current, { marginLeft: "-100%" }))
+            .to(aboutRef.current, 1.2, {
+                marginLeft: "0",
+                autoAlpha: 1,
+                ease: "circ.out",
+            })
+
+        // handle scroll
+        if (window.scrollY == 0) {
+            animate(ANIMATE_LANDING)
+        }
+
+        window.addEventListener("scroll", handleScroll, false)
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll)
+        }
+    }, [])
+
     return (
         <>
             <Head>
@@ -137,7 +231,10 @@ const Home = () => {
                         </div>
                     </div>
 
-                    <section className="tw-z-10 hero-text tw-container md:tw-w-1/2 tw-mb-18 tw-px-6 tw-pt-28 md:tw-px-12">
+                    <section
+                        ref={landingRef}
+                        className="tw-z-10 tw-invisible hero-text tw-container tw-text-center md:tw-text-left tw-w-11/12 md:tw-w-1/2 tw-mb-18 tw-px-6 tw-pt-28 md:tw-px-12"
+                    >
                         <h1 className="tw-text-4xl tw-mb-1 tw-font-extrabold">
                             Hey, I'm{" "}
                             <span className=" tw-text-primary-400">
@@ -151,27 +248,30 @@ const Home = () => {
                         </p>
                     </section>
 
-                    <div className="tw-opacity-30 md:tw-opacity-100 md:tw-visible bubbles tw-grid tw-place-items-end tw-absolute tw-overflow-hidden tw-w-full tw-h-full tw-transform">
-                        <div className="tw-w-full tw-relative tw-h-full tw-py-7 md:tw-w-1/3 md:tw-mr-20  tw-transform tw-grid tw-grid-cols-3 tw-gap-y-5 tw-gap-x-5 tw-grid-flow-row">
+                    <div
+                        ref={skillsRef}
+                        className="tw-invisible md:tw-py-6 bubbles tw-grid tw-place-items-end tw-absolute tw-overflow-hidden tw-w-full tw-h-full tw-transform"
+                    >
+                        <div className="tw-opacity-50 md:tw-opacity-100 tw-w-full tw-relative tw-h-full tw-py-7 md:tw-w-1/3 md:tw-mr-20  tw-transform tw-grid tw-grid-cols-3 tw-gap-y-5 tw-gap-x-5 tw-grid-flow-row">
                             <div className="bubble tw-col-span-2 tw-rounded-md tw-bg-gray-500 tw-bg-opacity-30 tw-grid tw-place-items-center">
                                 <span className="tw-text-primary-200 tw-text-opacity-40 tw-font-bold tw-text-4xl">
                                     <SiC />
                                 </span>
                             </div>
 
-                            <div className="bubble  tw-rounded-md tw-bg-gray-500 tw-bg-opacity-30 tw-grid tw-place-items-center">
+                            <div className="tw-opacity-30 md:tw-opacity-100 bubble  tw-rounded-md tw-bg-gray-500 tw-bg-opacity-30 tw-grid tw-place-items-center">
                                 <span className="tw-text-primary-200 tw-text-opacity-40 tw-font-bold tw-text-4xl">
                                     <SiPython />
                                 </span>
                             </div>
 
-                            <div className="bubble  tw-h-32  tw-rounded-md tw-bg-gray-500 tw-bg-opacity-30  tw-grid tw-place-items-center">
+                            <div className="tw-opacity-30 tw-row-span-1 md:tw-opacity-100 bubble  tw-rounded-md tw-bg-gray-500 tw-bg-opacity-30 tw-grid tw-place-items-center">
                                 <span className="tw-text-primary-200 tw-text-opacity-40 tw-font-bold tw-text-4xl">
                                     <SiRust />
                                 </span>
                             </div>
 
-                            <div className="bubble  tw-rounded-md tw-bg-gray-500 tw-bg-opacity-30 tw-grid tw-place-items-center">
+                            <div className="tw-opacity-30 tw-row-span-2 md:tw-opacity-100 bubble  tw-rounded-md tw-bg-gray-500 tw-bg-opacity-30 tw-grid tw-place-items-center">
                                 <span className="tw-text-primary-200 tw-text-opacity-40 tw-font-bold tw-text-4xl">
                                     <SiReact />
                                 </span>
@@ -183,7 +283,7 @@ const Home = () => {
                                 </span>
                             </div>
 
-                            <div className="bubble tw-rounded-md tw-bg-gray-500 tw-bg-opacity-30 tw-grid tw-place-items-center">
+                            <div className="tw-opacity-30 tw-row-span-2 md:tw-opacity-100 bubble tw-rounded-md tw-bg-gray-500 tw-bg-opacity-30 tw-grid tw-place-items-center">
                                 <span className="tw-text-primary-200 tw-text-opacity-40 tw-font-bold tw-text-4xl">
                                     <SiHtml5 />
                                 </span>
@@ -194,6 +294,11 @@ const Home = () => {
                                     <SiTailwindcss />
                                 </span>
                             </div>
+                            <div className="tw-opacity-30 tw-row-span-1 md:tw-opacity-100 bubble  tw-rounded-md tw-bg-gray-500 tw-bg-opacity-30 tw-grid tw-place-items-center">
+                                <span className="tw-text-primary-200 tw-text-opacity-40 tw-font-bold tw-text-4xl">
+                                    <SiGo />
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -202,9 +307,12 @@ const Home = () => {
                 {/* About */}
                 <div
                     id="about"
-                    className="wrapper tw-my-16 tw-pt-10 tw-grid tw-place-items-start tw-mb-20"
+                    className="wrapper tw-my-16 tw-pt-10 tw-grid tw-place-items-start tw-mb-20 tw-overflow-hidden"
                 >
-                    <div className="about tw-w-4/5 md:tw-w-3/5 tw-flex tw-flex-col tw-py-11 tw-bg-gray-900 tw-px-10 tw-rounded-r-2xl tw-shadow-md">
+                    <div
+                        ref={aboutRef}
+                        className="about tw-w-4/5 md:tw-w-3/5 tw-flex tw-flex-col tw-py-11 tw-bg-gray-700 tw-px-10 tw-rounded-r-2xl tw-shadow-sm"
+                    >
                         <h1 className="tw-font-extrabold tw-self-center tw-text-3xl tw-mb-4 tw-text-gray-100">
                             About me
                         </h1>
@@ -235,7 +343,7 @@ const Home = () => {
                 <div className="wrapper tw-w-full tw-flex tw-flex-col tw-items-center tw-min-h-full tw-mb-16 md:tw-mb-20">
                     <div
                         id="projects"
-                        className="tw-bg-primary-500 tw-group projects tw-container md:tw-max-w-3xl lg:tw-max-w-6xl tw-py-4 tw-px-4 tw-pb-6 tw-rounded-xl tw-shadow-lg"
+                        className="tw-bg-primary-600 tw-group projects tw-container md:tw-max-w-3xl lg:tw-max-w-6xl tw-py-4 tw-px-4 tw-pb-6 tw-rounded-xl tw-shadow-lg"
                     >
                         <h1 className="section-title tw-ml-2 tw-mb-2 tw-font-extrabold tw-text-gray-900">
                             My Favorite Projects
