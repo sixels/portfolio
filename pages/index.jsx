@@ -378,9 +378,9 @@ const Home = () => {
                                 ]}
                                 footer_badges={[
                                     badges.website(
-                                        "https://protoshark.github.io/chip-8"
+                                        "https://protoshark.github.io/chip8-wasm"
                                     ),
-                                    badges.github("protoshark/chip8_old"),
+                                    badges.github("protoshark/chip8"),
                                 ]}
                             />
                         </div>
